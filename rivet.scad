@@ -1,7 +1,7 @@
 module rivet(diameter=4, length=10, materialcolor="silver") {
     radius= diameter / 2;
     color(materialcolor)
-   union() { 
+   render() union() { 
         difference() {
             difference() {    
                 union() {

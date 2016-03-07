@@ -2,7 +2,7 @@ use <flightcase/extrusion_plate.scad>;
 module case_angle(
     length=200,
     size=30,
-    thickness=1.5,
+    thickness=1.8,
     materialcolor="silver",
     rivets=true,
     rivet_holes=true,
@@ -56,5 +56,51 @@ module case_angle(
     };
 };
 
-case_angle();
+
+module case_angle_edge(
+    size=30,
+    thickness=1.8,
+    materialcolor="silver",
+) {
+    union() {
+        
+        difference() {
+            translate([0,0,-size+thickness]) case_angle(
+                length=size,
+                size=size,
+                thickness=thickness,
+                materialcolor=materialcolor,
+                rivets=false,
+                rivet_holes=false
+            );
+            translate([size,-size,thickness]) {
+                rotate([0,180,0])
+                    scale(size+thickness) __case_angle_miter_cutter();
+            };
+        };
+      
+        difference() {
+            translate([-thickness,0,0]) {
+                rotate([0,90,0]) case_angle(
+                        length=size,
+                        size=size,
+                        thickness=thickness,
+                        materialcolor=materialcolor,
+                        rivets=false,
+                        rivet_holes=false
+                );
+            };
+            union() {
+                translate([-thickness,-size/2,-size+thickness]) {
+                    scale(size) __case_angle_miter_cutter();
+                };
+                translate([size/2,-size/2,-2*size+thickness]) cube(size);
+            };
+        };
+        
+    };
+    
+};
+//translate([-500, 0, 0]) case_angle();
+case_angle_edge();
 

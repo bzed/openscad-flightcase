@@ -1,5 +1,12 @@
 use <flightcase/rivet.scad>;
 
+module __case_angle_miter_cutter() {
+    difference() {
+        translate([-1,0,-1]) cube([2,2,2]);
+        translate([1,-1,0]) rotate([0,-45,0]) cube([1,4,sqrt(2)]);
+    };
+}
+
 module extrusion_plate(
     width,
     height,
@@ -79,6 +86,7 @@ module extrusion_plate(
         };
     };
 };
+/*
 
 extrusion_plate(
     20,
@@ -93,3 +101,5 @@ extrusion_plate(
     rivet_distance=30,
     rivet_materialcolor="gold"
 );
+*/
+ __case_angle_miter_cutter();
