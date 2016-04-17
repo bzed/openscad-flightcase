@@ -1,4 +1,5 @@
 use <flightcase/t_extrusion.scad>;
+use <flightcase/panel.scad>;
 
 module t_extrusion_case_wall(
     height,
@@ -12,6 +13,7 @@ module t_extrusion_case_wall(
     rivet_materialcolor = "silver",
     extrusion_materialcolor = "silver",
     extrution_thickness = 1.5,
+    wood_material="phenol"
 ) {
     t_extrusion_size = ceil(wood_thickness);
     real_height = height - 2*extrution_thickness;
@@ -45,7 +47,7 @@ module t_extrusion_case_wall(
     }
     
     wall = [wood_thickness, length, height - 2*extrution_thickness];
-    translate([-wood_thickness/2,0,extrution_thickness]) color(wood_color) cube(wall);
+    translate([-wood_thickness/2,0,extrution_thickness]) mirror() rotate([0,-90,0]) panel(height - 2*extrution_thickness, length, wood_thickness, wood_material, wood_color);
 };
 
 t_extrusion_case_wall(200,600,9.8,"blue");

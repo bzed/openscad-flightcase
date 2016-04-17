@@ -18,6 +18,8 @@ module t_extrusion(
     height = 20;
     width = size + 2*thickness + 2*side;
     
+    echo(material="<b>T extrusion</b>", length, size, thickness);
+    
     translate([-(width/2),length,0]) {
         rotate([90,0,0]) {
             union() {

@@ -11,7 +11,7 @@ module case_angle(
     rivet_distance=50,
     rivet_materialcolor="silver"
 ) {
-  
+  echo(material="<b>case angle</b>", length, size, thickness);
     color(materialcolor) union() {
         translate([size,0,0]) {
             rotate([180,180,0]) {

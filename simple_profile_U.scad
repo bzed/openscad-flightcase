@@ -6,6 +6,7 @@
 */
 
 module simple_profile_U(a,b,c,d, length) {
+    echo(material="<b>U profile</b>", a, b, c, d, length);
     translate([-b/2,-d,0])
     linear_extrude( height = length ) {
         polygon(

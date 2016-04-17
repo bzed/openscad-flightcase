@@ -6,6 +6,7 @@
 */
 
 module simple_profile_L(a,b,c, length) {
+    echo(material="<b>L profile</b>", a, b, c, length);
     translate([-c,-c,0])
     linear_extrude( height = length ) {
         polygon(

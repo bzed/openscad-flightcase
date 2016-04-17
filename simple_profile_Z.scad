@@ -10,6 +10,7 @@ ___
  material thickness = d
  */
 module simple_profile_Z(a,b,c,d, length) {
+    echo(material="<b>Z profile</b>", a, b, c, d, length);
     linear_extrude( height = length ) {
         translate([-a,-d,0])
         polygon(

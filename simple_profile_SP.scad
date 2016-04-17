@@ -8,6 +8,7 @@ square pipe
 */
 
 module simple_profile_SP(a,b,c, length) {
+    echo(material="<b>square pipe</b>", a, b, c, length);
     linear_extrude( height = length ) {
         polygon(
             points = [

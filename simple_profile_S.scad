@@ -7,6 +7,7 @@ square bar
 */
 
 module simple_profile_S(a,b, length) {
+    echo(material="<b>square bar</b>", a, b, length);
     linear_extrude( height = length ) {
         polygon(
             points = [

@@ -4,6 +4,7 @@
 */
 
 module simple_profile_flat(a,b, length) {
+    echo(material="<b>flat profile</b>", a, b, length);
     translate([0,-b,0])
     linear_extrude( height = length ) {
         square([a,b]);

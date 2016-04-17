@@ -5,6 +5,7 @@ round pipe
 */
 
 module simple_profile_RP(a,b, length) {
+    echo(material="<b>round pipe</b>", a, b, length);
     radius = a/2;
     linear_extrude( height = length ) {
         difference() {
